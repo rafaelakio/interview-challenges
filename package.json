@@ -1,0 +1,31 @@
+{
+  "name": "interview-challenges",
+  "version": "1.0.0",
+  "description": "Coleção completa dos principais desafios técnicos utilizados em entrevistas de empresas de tecnologia",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "interview",
+    "coding-challenges",
+    "system-design",
+    "algorithms",
+    "data-structures",
+    "backend",
+    "frontend",
+    "fullstack",
+    "faang",
+    "preparation"
+  ],
+  "author": "Community",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/interview-challenges"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/interview-challenges/issues"
+  },
+  "homepage": "https://github.com/yourusername/interview-challenges#readme"
+}
