@@ -4,7 +4,10 @@
   "description": "Coleção completa dos principais desafios técnicos utilizados em entrevistas de empresas de tecnologia",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "lint": "eslint . --ext .js",
+    "format": "prettier --write ."
   },
   "keywords": [
     "interview",
@@ -22,10 +25,16 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yourusername/interview-challenges"
+    "url": "https://github.com/rafaelakio/interview-challenges"
   },
   "bugs": {
-    "url": "https://github.com/yourusername/interview-challenges/issues"
+    "url": "https://github.com/rafaelakio/interview-challenges/issues"
   },
-  "homepage": "https://github.com/yourusername/interview-challenges#readme"
+  "homepage": "https://github.com/rafaelakio/interview-challenges#readme",
+  "devDependencies": {
+    "@types/jest": "^29.5.12",
+    "eslint": "^8.57.0",
+    "jest": "^29.7.0",
+    "prettier": "^3.3.3"
+  }
 }
