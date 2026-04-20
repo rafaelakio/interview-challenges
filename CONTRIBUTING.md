@@ -6,279 +6,134 @@ Obrigado por considerar contribuir para o Interview Challenges! Este projeto é 
 
 ### 1. Reportar Bugs
 
-Se você encontrou um bug:
-
-1. Verifique se já não existe uma issue aberta
-2. Crie uma nova issue com:
-   - Título descritivo
-   - Descrição detalhada do problema
-   - Passos para reproduzir
-   - Comportamento esperado vs atual
-   - Screenshots (se aplicável)
+Se você encontrou um bug, abra uma issue usando o template de **Bug Report** (`.github/ISSUE_TEMPLATE/bug_report.md`). Verifique antes se já não existe uma issue aberta para o mesmo problema.
 
 ### 2. Sugerir Melhorias
 
-Para sugerir novas features ou melhorias:
-
-1. Abra uma issue com tag `enhancement`
-2. Descreva claramente a melhoria proposta
-3. Explique por que seria útil
-4. Forneça exemplos de uso
+Para sugerir novas features ou melhorias, use o template de **Feature Request** (`.github/ISSUE_TEMPLATE/feature_request.md`) e descreva claramente a melhoria proposta, a motivação e exemplos de uso.
 
 ### 3. Adicionar Novos Desafios
 
 Para adicionar um novo desafio:
 
-1. Fork o repositório
-2. Crie uma branch: `git checkout -b feature/novo-desafio`
-3. Siga a estrutura padrão (veja abaixo)
-4. Commit suas mudanças: `git commit -m 'Add: Novo desafio X'`
-5. Push para a branch: `git push origin feature/novo-desafio`
-6. Abra um Pull Request
+1. Fork do repositório
+2. Crie uma branch seguindo a convenção (ver abaixo)
+3. Siga a estrutura padrão dos desafios existentes
+4. Abra um Pull Request preenchendo o template
 
-#### Estrutura de um Desafio
+## 🌿 Workflow de Branches
+
+Use branches específicas para cada tipo de mudança e sempre faça merge via Pull Request em `main`.
+
+- `feature/<nome-curto>` — novas funcionalidades e desafios
+- `fix/<nome-curto>` — correções de bugs
+- `chore/<nome-curto>` — manutenção, configuração, dependências
+- `docs/<nome-curto>` — documentação
+
+Fluxo:
+
+1. Crie a branch a partir de `main` atualizado.
+2. Faça commits pequenos e descritivos.
+3. Abra um PR para `main`.
+4. Aguarde revisão e CI.
+5. Merge após aprovação.
+
+## 📝 Conventional Commits
+
+Todos os commits devem seguir [Conventional Commits](https://www.conventionalcommits.org/pt-br/v1.0.0/):
+
+- `feat:` — nova feature
+- `fix:` — correção de bug
+- `chore:` — manutenção geral (dependências, configs)
+- `docs:` — mudanças apenas em documentação
+- `test:` — adicionar ou ajustar testes
+- `refactor:` — refatoração sem mudança de comportamento
+- `ci:` — mudanças em pipelines de CI/CD
+
+Exemplos:
+
+```
+feat: adicionar solução LRU cache em Go
+fix: corrigir typo no README do autocomplete
+docs: atualizar QUICKSTART com instruções de testes
+```
+
+## 🔁 Processo de Code Review
+
+- Todo PR exige **pelo menos 1 aprovação** antes de ser mergeado.
+- O CI deve estar **verde** (todos os checks passando).
+- Resolva todos os comentários da review antes do merge.
+- Prefira squash merge para manter histórico limpo em `main`.
+
+## 📬 Como Criar PRs
+
+1. Dê um título descritivo seguindo Conventional Commits (ex: `feat: adicionar solução de rate limiter em Python`).
+2. Preencha todo o template de PR (`.github/pull_request_template.md`).
+3. Vincule a issue relacionada com `Closes #<número>`.
+4. Adicione screenshots/GIFs para mudanças visuais.
+5. Marque revisores e aguarde CI + review.
+
+## 🔒 Branch Protection (instruções para admins)
+
+Para garantir a qualidade de `main`, configure em **GitHub → Settings → Branches → Add rule** para o padrão `main`:
+
+- ✅ **Require a pull request before merging**
+  - Require approvals: **1**
+  - Dismiss stale pull request approvals when new commits are pushed
+- ✅ **Require status checks to pass before merging**
+  - Require branches to be up to date before merging
+  - Selecione os checks do workflow CI (ex.: `test (18.x)`, `test (20.x)`)
+- ✅ **Require conversation resolution before merging**
+- ✅ **Include administrators**
+- ❌ **Allow force pushes** — desativado
+- ❌ **Allow deletions** — desativado
+
+## 🧪 Desenvolvimento Local
+
+```bash
+make install   # instala dependências
+make test      # roda testes (jest)
+make lint      # roda o linter
+make format    # formata o código
+```
+
+Ou diretamente via npm:
+
+```bash
+npm install
+npm test
+npm run lint
+npm run format
+```
+
+## 📚 Estrutura de um Desafio
 
 ```markdown
 # Nome do Desafio
 
 ## 🎯 Por Que Este Desafio?
+[Explicação da relevância]
 
-[Explicação da relevância do desafio]
-
-**Empresas que usam**: [Lista de empresas]
+**Empresas que usam**: [Lista]
 
 ## 📋 Requisitos
-
 ### Funcionais
 - Requisito 1
-- Requisito 2
-
 ### Não-Funcionais
-- Performance
-- Escalabilidade
+- Performance / Escalabilidade
 
 ## 🧠 Conceitos Avaliados
-
 - Conceito 1
-- Conceito 2
 
 ## 💡 Soluções
-
 ### Solução 1: Básica
-
-[Código e explicação]
-
-**Prós**:
-- Pro 1
-
-**Contras**:
-- Contra 1
-
 ### Solução 2: Intermediária
-
-[Código e explicação]
-
 ### Solução 3: Avançada
 
-[Código e explicação]
-
 ## 📊 Comparação de Soluções
-
-[Tabela comparativa]
-
 ## 🤔 Perguntas Comuns do Entrevistador
-
-1. Pergunta 1
-2. Pergunta 2
-
 ## 🎯 Dicas para a Entrevista
-
-1. Dica 1
-2. Dica 2
-
 ## 📚 Recursos Adicionais
-
-- Link 1
-- Link 2
 ```
 
-### 4. Melhorar Soluções Existentes
-
-Para melhorar uma solução existente:
-
-1. Identifique o que pode ser melhorado
-2. Implemente a melhoria
-3. Adicione comentários explicativos
-4. Atualize a documentação
-5. Abra um Pull Request
-
-### 5. Adicionar Implementações em Outras Linguagens
-
-Aceitamos implementações em:
-- JavaScript/TypeScript
-- Python
-- Go
-- Java
-- C++
-- Rust
-- Outras linguagens populares
-
-## 📝 Padrões de Código
-
-### JavaScript/TypeScript
-
-```javascript
-// Use camelCase para variáveis e funções
-const myVariable = 'value';
-
-function myFunction() {
-  // Código bem comentado
-  return result;
-}
-
-// Use classes quando apropriado
-class MyClass {
-  constructor() {
-    // Inicialização
-  }
-}
-```
-
-### Python
-
-```python
-# Use snake_case para variáveis e funções
-my_variable = 'value'
-
-def my_function():
-    """Docstring explicativa."""
-    return result
-
-# Use classes quando apropriado
-class MyClass:
-    def __init__(self):
-        # Inicialização
-        pass
-```
-
-### Go
-
-```go
-// Use camelCase para variáveis privadas
-myVariable := "value"
-
-// Use PascalCase para exportados
-func MyFunction() {
-    // Código bem comentado
-}
-
-// Structs bem documentados
-type MyStruct struct {
-    Field1 string
-    Field2 int
-}
-```
-
-## ✅ Checklist do Pull Request
-
-Antes de submeter um PR, verifique:
-
-- [ ] O código está bem formatado
-- [ ] Há comentários explicativos
-- [ ] A documentação está atualizada
-- [ ] Não há erros de sintaxe
-- [ ] O código segue os padrões do projeto
-- [ ] Adicionei exemplos de uso
-- [ ] Testei a implementação
-- [ ] Atualizei o INDEX.md se necessário
-
-## 🎨 Estilo de Documentação
-
-### Títulos
-
-```markdown
-# Título Principal (H1)
-## Seção (H2)
-### Subseção (H3)
-```
-
-### Emojis
-
-Use emojis para melhorar a legibilidade:
-
-- 🎯 Objetivos/Por quê
-- 📋 Requisitos/Listas
-- 🧠 Conceitos/Conhecimento
-- 💡 Soluções/Ideias
-- 📊 Comparações/Dados
-- 🤔 Perguntas/Dúvidas
-- 🎯 Dicas/Sugestões
-- 📚 Recursos/Links
-- ⚠️ Avisos/Atenção
-- ✅ Checklist/Confirmação
-- ❌ Erros/Não fazer
-
-### Code Blocks
-
-Sempre especifique a linguagem:
-
-````markdown
-```javascript
-const code = 'here';
-```
-
-```python
-code = 'here'
-```
-````
-
-## 🔍 Processo de Review
-
-1. **Automated Checks**: Verificações automáticas de formatação
-2. **Code Review**: Revisão por mantenedores
-3. **Feedback**: Sugestões de melhoria
-4. **Approval**: Aprovação e merge
-
-## 🌟 Reconhecimento
-
-Todos os contribuidores serão:
-- Listados no README
-- Mencionados no changelog
-- Reconhecidos na comunidade
-
-## 📞 Dúvidas?
-
-- Abra uma issue com tag `question`
-- Entre em contato via discussions
-- Consulte a documentação existente
-
-## 📜 Código de Conduta
-
-### Nossos Padrões
-
-**Comportamentos esperados**:
-- Ser respeitoso e inclusivo
-- Aceitar críticas construtivas
-- Focar no que é melhor para a comunidade
-- Mostrar empatia
-
-**Comportamentos inaceitáveis**:
-- Linguagem ofensiva ou discriminatória
-- Assédio de qualquer tipo
-- Ataques pessoais
-- Comportamento não profissional
-
-### Aplicação
-
-Violações do código de conduta podem resultar em:
-1. Aviso
-2. Banimento temporário
-3. Banimento permanente
-
-## 🙏 Agradecimentos
-
-Obrigado por contribuir para tornar este projeto melhor para toda a comunidade de desenvolvedores!
-
----
-
-**Lembre-se**: Toda contribuição, por menor que seja, é valiosa! 🚀
+Obrigado pela contribuição! 🚀
