@@ -81,8 +81,18 @@ function InfiniteScrollBasic() {
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    let timeoutId;
+    const throttledScroll = () => {
+      if (!timeoutId) {
+        timeoutId = setTimeout(() => {
+          handleScroll();
+          timeoutId = null;
+        }, 150);
+      }
+    };
+
+    window.addEventListener('scroll', throttledScroll);
+    return () => window.removeEventListener('scroll', throttledScroll);
   }, [loading, hasMore]);
 
   return (

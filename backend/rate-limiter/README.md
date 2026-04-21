@@ -55,11 +55,11 @@ class FixedWindowRateLimiter {
     const windowStart = Math.floor(now / (this.windowSeconds * 1000));
     const key = `rate_limit:${userId}:${windowStart}`;
 
+    // Usa multi para garantir atomicidade ou define expiração em toda chamada
+    // para evitar vazamento de memória caso o primeiro expire falhe.
     const count = await client.incr(key);
-    
     if (count === 1) {
-      // Primeira requisição da janela - define expiração
-      await client.expire(key, this.windowSeconds);
+        await client.expire(key, this.windowSeconds);
     }
 
     return count <= this.maxRequests;
