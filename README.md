@@ -79,6 +79,24 @@ interview-challenges/
 - **Banco de Dados**: PostgreSQL, MongoDB, Redis
 - **Infraestrutura**: Docker, Kubernetes, AWS
 
+## 🌿 GitFlow
+
+Este projeto segue o modelo [GitFlow](docs/GITFLOW.md) para gestão de branches:
+
+- 🏷️ **main**: Produção (protegida)
+- 🌿 **develop**: Integração (protegida)
+- ✨ **feature/***: Novas funcionalidades
+- 🐛 **bugfix/***: Correções de bugs
+- 🔥 **hotfix/***: Correções críticas
+- 📦 **release/***: Preparação de releases
+
+### Como Contribuir:
+1. Fork o repositório
+2. Crie branch: `git checkout -b feature/sua-feature`
+3. Commit: `git commit -m 'feat: add amazing feature'`
+4. Push: `git push origin feature/sua-feature`
+5. Abra PR para `develop`
+
 ## 📖 Guias Complementares
 
 - [System Design Patterns](docs/system-design.md)
